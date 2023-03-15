@@ -1,28 +1,19 @@
+/* eslint-disable quotes */
 module.exports = {
+  friendlyName: "Destroy one thing",
 
-
-  friendlyName: 'Destroy one thing',
-
-
-  description: '',
-
+  description: 'Delete the "thing" with specified ID from the database.',
 
   inputs: {
-
+    type: "number",
+    required: true,
   },
 
+  exits: {},
 
-  exits: {
-
-  },
-
-
-  fn: async function (inputs) {
-
+  fn: async function (inputs, exists) {
+    await Thing.destroy();
     // All done.
     return;
-
-  }
-
-
+  },
 };
