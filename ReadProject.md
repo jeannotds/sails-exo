@@ -10,3 +10,7 @@ npm install mocha --save-dev --save-exact
 replace custom-tests: "echo \"(No other custom tests yet.)\" && echo" to "node ./node_modules mocha/bind/mocha",
 
 sails generate action destry-one-thing
+
+sails run scripts/rebuild-cloud-sdk
+
+

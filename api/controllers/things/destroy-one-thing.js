@@ -13,9 +13,9 @@ module.exports = {
 
   exits: {},
 
-  fn: async function (inputs, exists) {
+  fn: async function (inputs, exits) {
     await Thing.destroy({ id: inputs.id });
 
-    return exists.success();
+    exits.success();
   },
 };

@@ -10,9 +10,10 @@ module.exports = {
     },
   },
 
-  fn: async function (inputs, exist) {
+  fn: async function (inputs, exits) {
     var things = await Thing.find();
 
-    return { things };
+    // return { things };
+    return exits.success({ things });
   },
 };
