@@ -11,10 +11,24 @@ module.exports = {
     },
   },
 
-  exits: {},
+  exits: {
+    forbidden: {
+      description:
+        "The User making this request doesn't have the permissions to delete this thing",
+      statusCode: 403,
+      // responseType: "forbidden",
+    },
+  },
 
   fn: async function (inputs, exits) {
-    await Thing.destroy({ id: inputs.id });
+    const thing = await Thing.findOne({ id: inputs.id });
+
+    if (thing.owner !== this.req.me.id) {
+      // throw new Error("Nope");
+      throw "forbidden";
+    } else {
+      await Thing.destroy({ id: inputs.id });
+    }
 
     exits.success();
   },
