@@ -10,9 +10,7 @@ parasails.registerPage("available-things", {
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function () {
-
-  },
+  beforeMount: function () {},
   mounted: async function () {
     //…
   },
@@ -22,8 +20,11 @@ parasails.registerPage("available-things", {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     //…
-    clickThing: function (thingId) {
+    clickThing: async function (thingId) {
       console.log("click thing #", +thingId);
+      await Cloud.destroyOneThing.with({ id: thingId });
+      _.remove(this.things, { id: thingId });
+      this.$forceUpdate();
     },
   },
 });
