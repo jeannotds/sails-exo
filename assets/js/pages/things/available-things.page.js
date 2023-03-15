@@ -11,10 +11,7 @@ parasails.registerPage("available-things", {
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
   beforeMount: function () {
-    this.things = [
-      { id: 1, label: "Sweet Red Drill" },
-      { id: 2, label: "Red Mountain Drill" },
-    ];
+
   },
   mounted: async function () {
     //…

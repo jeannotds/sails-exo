@@ -1,27 +1,22 @@
+/* eslint-disable quotes */
 module.exports = {
-
-
-  friendlyName: 'View available things',
-
+  friendlyName: "View available things",
 
   description: 'Display "Available things" page.',
 
-
   exits: {
-
     success: {
-      viewTemplatePath: 'pages/things/available-things'
-    }
-
+      viewTemplatePath: "pages/things/available-things",
+    },
   },
 
+  fn: async function (inputs, exist) {
 
-  fn: async function () {
+    var things = await Thing.find();
 
     // Respond with view.
-    return {};
-
-  }
-
-
+    return {
+      things,
+    };
+  },
 };
