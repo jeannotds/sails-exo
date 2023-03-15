@@ -21,5 +21,8 @@ parasails.registerPage('available-things', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     //…
+    clickThing: function(thingId){
+      console.log('click thing #',+thingId);
+    }
   }
 });
