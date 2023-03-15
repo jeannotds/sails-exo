@@ -11,12 +11,8 @@ module.exports = {
   },
 
   fn: async function (inputs, exist) {
-
     var things = await Thing.find();
 
-    // Respond with view.
-    return {
-      things,
-    };
+    return { things };
   },
 };

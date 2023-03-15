@@ -5,8 +5,10 @@ module.exports = {
   description: 'Delete the "thing" with specified ID from the database.',
 
   inputs: {
-    type: "number",
-    required: true,
+    id: {
+      type: "number",
+      required: true,
+    },
   },
 
   exits: {},
@@ -14,6 +16,6 @@ module.exports = {
   fn: async function (inputs, exists) {
     await Thing.destroy({ id: inputs.id });
 
-    exists.success();
+    return exists.success();
   },
 };
