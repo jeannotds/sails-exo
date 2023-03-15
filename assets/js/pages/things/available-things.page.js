@@ -1,4 +1,5 @@
-parasails.registerPage('available-things', {
+/* eslint-disable quotes */
+parasails.registerPage("available-things", {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
@@ -9,10 +10,13 @@ parasails.registerPage('available-things', {
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
   //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣
   //  ╩═╝╩╚  ╚═╝╚═╝ ╩ ╚═╝╩═╝╚═╝
-  beforeMount: function() {
-    //…
+  beforeMount: function () {
+    this.things = [
+      { id: 1, label: "Sweet Red Drill" },
+      { id: 2, label: "Red Mountain Drill" },
+    ];
   },
-  mounted: async function() {
+  mounted: async function () {
     //…
   },
 
@@ -21,8 +25,8 @@ parasails.registerPage('available-things', {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     //…
-    clickThing: function(thingId){
-      console.log('click thing #',+thingId);
-    }
-  }
+    clickThing: function (thingId) {
+      console.log("click thing #", +thingId);
+    },
+  },
 });
