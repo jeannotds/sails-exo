@@ -15,7 +15,7 @@ module.exports.bootstrap = async function () {
   var path = require("path");
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
-  var HARD_CODED_DATA_VERSION = 5;
+  var HARD_CODED_DATA_VERSION = 11;
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).
@@ -119,8 +119,15 @@ module.exports.bootstrap = async function () {
   await Thing.createEach([
     { label: "Lawn Mower that matches the grass", owner: ryanDaht.id },
     { label: "Lotaro Martinez", owner: ryanDaht.id },
+    { label: "Walos Torg", owner: ryanDaht.id },
+    { label: "Rashford Martinez", owner: ryanDaht.id },
     { label: "Rad mountain bike", owner: jeannotDia.id },
     { label: "This Kenny bike", owner: jeannotDia.id },
+    { label: "Blaise Mosongo", owner: jeannotDia.id },
+    { label: "Thabita Marceline Tombe", owner: jeannotDia.id },
+    { label: "Kiala Makanda", owner: jeannotDia.id },
+    { label: "Tumba Ngola Marie", owner: jeannotDia.id },
+    { label: "Villa David", owner: jeannotDia.id },
   ]);
 
   // Save new bootstrap version
