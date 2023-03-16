@@ -15,7 +15,7 @@ module.exports.bootstrap = async function () {
   var path = require("path");
 
   // This bootstrap version indicates what version of fake data we're dealing with here.
-  var HARD_CODED_DATA_VERSION = 4;
+  var HARD_CODED_DATA_VERSION = 5;
 
   // This path indicates where to store/look for the JSON file that tracks the "last run bootstrap info"
   // locally on this development computer (if we happen to be on a development computer).
@@ -110,7 +110,7 @@ module.exports.bootstrap = async function () {
     password: await sails.helpers.passwords.hashPassword("jean123"),
   }).fetch();
 
-  // Add Ryan as one of jeannotDia is friend
+  // Add Ryan as one of jeannotDia is friends
   await User.addToCollection(jeannotDia.id, "friends", ryanDaht.id);
 
   //Probably not real life
