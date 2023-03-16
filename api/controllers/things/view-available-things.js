@@ -11,12 +11,9 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    
     var things = await Thing.find({
       owner: this.req.me.id,
     });
-
-    // return { things };
     return exits.success({ things });
   },
 };
