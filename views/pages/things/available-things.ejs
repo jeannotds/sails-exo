@@ -10,8 +10,10 @@
     <div class="listings" v-if="things.length > 0">
       <div v-for="thing in things" class="card" :key="'thing'+thing.id">
         <div class="card-options">
-          <sapn  class="options-button" data-toggle="tooltip" data-placement="top" title="Delete" 
-          @click="clickDeleteThing(thing.id)" v-if="thing.owner.id === me.id" ><span class="fa fa-trash-o text-danger"></span></sapn>
+          <span  class="options-button" data-toggle="tooltip" data-placement="top" title="Delete" 
+          @click="clickDeleteThing(thing.id)" :v-if="thing.owner.id == me.id" >
+          <span class="fa fa-trash-o text-danger"></span>
+        </span>
         </div>
         <span class="label" v-if="thing.label">{{ thing.label }}<br></span>
         <small class="owner text-secondary" v-if="thing.owner.id === me.id"><span class="fa fa-home mr-1"></span>

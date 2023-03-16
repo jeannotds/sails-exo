@@ -14,6 +14,8 @@ parasails.registerPage("available-things", {
   beforeMount: function () {},
   mounted: async function () {
     //…
+    console.log("THis Me : ", this.me.id);
+    console.log("THIS OWNER", this.things);
   },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
@@ -23,12 +25,12 @@ parasails.registerPage("available-things", {
     //…
     clickThing: async function (thingId) {
       console.log("click thing #", +thingId);
+    },
+
+    clickDeleteThing: async function (thingId) {
       await Cloud.destroyOneThing.with({ id: thingId });
       _.remove(this.things, { id: thingId });
       this.$forceUpdate();
-    },
-
-    clickDeleteThing: function () {
       console.log("Click the 'Delete' button ");
       this.confirmDeleteThingModelOpen = true;
     },

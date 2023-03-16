@@ -16,6 +16,8 @@ module.exports = {
       id: this.req.me.id,
     }).populate("friends");
 
+    console.log("me : ", me);
+
     //Send All my fiends Id
     var friendIds = _.pluck(me.friends, "id");
 

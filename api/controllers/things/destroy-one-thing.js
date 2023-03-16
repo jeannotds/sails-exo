@@ -15,8 +15,8 @@ module.exports = {
     forbidden: {
       description:
         "The User making this request doesn't have the permissions to delete this thing",
-      statusCode: 403,
-      // responseType: "forbidden",
+      // statusCode: 403,
+      responseType: "forbidden",
     },
   },
 
@@ -25,7 +25,7 @@ module.exports = {
 
     if (thing.owner !== this.req.me.id) {
       // throw new Error("Nope");
-      throw "forbidden";
+      return exits.forbidden;
     } else {
       await Thing.destroy({ id: inputs.id });
     }
