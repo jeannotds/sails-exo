@@ -4,7 +4,8 @@ parasails.registerPage("available-things", {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-    //…
+    things: [],
+    confirmDeleteThingModelOpen: false,
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -25,6 +26,11 @@ parasails.registerPage("available-things", {
       await Cloud.destroyOneThing.with({ id: thingId });
       _.remove(this.things, { id: thingId });
       this.$forceUpdate();
+    },
+
+    clickDeleteThing: function () {
+      console.log("Click the 'Delete' button ");
+      this.confirmDeleteThingModelOpen = true;
     },
   },
 });
