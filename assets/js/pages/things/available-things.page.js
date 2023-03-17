@@ -56,8 +56,10 @@ parasails.registerPage("available-things", {
     },
 
     submittedDeleteThingForm: function () {
-      console.log("Ok it worked!");
+      // Second methods
+      // submittedDeleteThingForm: function (thingId) {
       // _.remove(this.things, { id: thingId });
+      console.log("Ok it worked!");
       _.remove(this.things, { id: this.selectedThing.id });
       this.$forceUpdate();
       this.confirmDeleteThingModelOpen = false;

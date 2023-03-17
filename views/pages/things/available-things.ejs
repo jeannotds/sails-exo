@@ -30,6 +30,8 @@
   <modal v-if="confirmDeleteThingModelOpen && selectedThing " v-cloak key="delete" 
   @close="closeDeleteThingModal()" >
     <ajax-form action="destroyOneThing" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingDeletingForm" @submitted="submittedDeleteThingForm()">
+      <!-- //Second Methods -->
+      <!-- <ajax-form action="destroyOneThing" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingDeletingForm" @submitted="submittedDeleteThingForm(selectedThing.id)"> -->
         <div class="modal-header">
             <h5 class="modal-title">Remove this item</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="close">
