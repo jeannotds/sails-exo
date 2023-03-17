@@ -14,3 +14,7 @@ sails generate action destry-one-thing
 sails run scripts/rebuild-cloud-sdk
 
 
+.tmp/public/cloud.setup.js
+destroyOneThing.with({})
+
+

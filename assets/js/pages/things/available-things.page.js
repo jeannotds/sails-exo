@@ -6,8 +6,14 @@ parasails.registerPage("available-things", {
   data: {
     things: [],
     confirmDeleteThingModelOpen: false,
-    a: 100,
+    a: 110,
     b: 100,
+
+    // Syncing / loading state
+    syncing: false,
+
+    //Server error state
+    cloudError: "",
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -25,16 +31,37 @@ parasails.registerPage("available-things", {
   //  ╩╝╚╝ ╩ ╚═╝╩╚═╩ ╩╚═╝ ╩ ╩╚═╝╝╚╝╚═╝
   methods: {
     //…
-    clickThing: async function (thingId) {
-      console.log("click thing #", +thingId);
-    },
+    // clickThing: async function (thingId) {
+    //   console.log("click thing #", +thingId);
+    //   await Cloud.destroyOneThing.with({ id: thingId });
+    //   _.remove(this.things, { id: thingId });
+    //   this.$forceUpdate();
+    // },
 
     clickDeleteThing: async function (thingId) {
-      await Cloud.destroyOneThing.with({ id: thingId });
-      _.remove(this.things, { id: thingId });
-      this.$forceUpdate();
-      console.log("Click the 'Delete' button ");
+      // await Cloud.destroyOneThing.with({ id: thingId });
       this.confirmDeleteThingModelOpen = true;
+      this.selectedThing = _.find(this.things, { id: thingId });
+      console.log("selectedThing : ", this.selectedThing);
+    },
+
+    closeDeleteThingModal: async function () {
+      this.selectedThing = undefined;
+      this.confirmDeleteThingModelOpen = false;
+    },
+
+    //Take id of User
+    handleParsingDeletingForm: function () {
+      return { id: this.selectedThing.id };
+    },
+
+    submittedDeleteThingForm: function () {
+      console.log("Ok it worked!");
+      // _.remove(this.things, { id: thingId });
+      _.remove(this.things, { id: this.selectedThing.id });
+      this.$forceUpdate();
+      this.confirmDeleteThingModelOpen = false;
+      this.selectedThing = undefined;
     },
   },
 });
