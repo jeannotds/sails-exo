@@ -6,6 +6,8 @@ parasails.registerPage("available-things", {
   data: {
     things: [],
     confirmDeleteThingModelOpen: false,
+    a: 100,
+    b: 100,
   },
 
   //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗

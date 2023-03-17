@@ -1,7 +1,7 @@
 <div id="available-things" v-cloak>
   <div class="container">
     <div class="page-header text-center">
-      <h1>Things</h1>
+      <h1>Thing</h1>
       <h2>View available items to borrow, or upload your own things</h2>
       <div class="header-buttons">
         <button class="btn btn-outline-primary">Add an item</button>
@@ -11,14 +11,14 @@
       <div v-for="thing in things" class="card" :key="'thing'+thing.id">
         <div class="card-options">
           <span  class="options-button" data-toggle="tooltip" data-placement="top" title="Delete" 
-          @click="clickDeleteThing(thing.id)" :v-if="thing.owner.id == me.id" >
+          @click="clickDeleteThing(thing.id)" :v-if="thing.owner.id === me.id" >
           <span class="fa fa-trash-o text-danger"></span>
         </span>
         </div>
         <span class="label" v-if="thing.label">{{ thing.label }}<br></span>
-        <small class="owner text-secondary" v-if="thing.owner.id === me.id"><span class="fa fa-home mr-1"></span>
+        <small class="owner text-secondary" v-if="me.id === thing.owner.id"><span class="fa fa-home mr-1"></span>
           Mine</small>
-        <small class="owner text-primary" v-else>{{ thing.owner.fullName }}</small>
+        <small class="owner text-primary" v-else>{{ thing.owner.id }}kkkkk</small>
       </div>
     </div>
     <div class="empty text-center" v-else><p>You and your friends have not uploaded any items. Add something 
