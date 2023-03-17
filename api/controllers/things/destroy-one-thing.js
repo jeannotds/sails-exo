@@ -17,10 +17,18 @@ module.exports = {
         "The User making this request doesn't have the permissions to delete this thing",
       responseType: "forbidden",
     },
+    notFound: {
+      description: "No such thing with that ID exists",
+      responseType: "notFound",
+    },
   },
 
   fn: async function (inputs, exits) {
     const thing = await Thing.findOne({ id: inputs.id });
+
+    if (!thing) {
+      return exits.notFound;
+    }
 
     if (thing.owner !== this.req.me.id) {
       return exits.forbidden;
