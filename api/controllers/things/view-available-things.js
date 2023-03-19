@@ -20,10 +20,12 @@ module.exports = {
 
     //Send All my fiends Id
     var friendIds = _.pluck(me.friends, "id");
+    console.log("friendId ", friendIds);
 
     var things = await Thing.find({
       or: [{ owner: this.req.me.id }, { owner: { in: friendIds } }],
     });
+    console.log("allFriends ;;: ", things);
     return exits.success({ things });
   },
 };

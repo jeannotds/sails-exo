@@ -12,13 +12,19 @@ module.exports = {
       description: "Upload file stream",
       required: true,
     },
-    label: "string",
+    label: {
+      type: "string",
+    },
   },
 
   exits: {},
 
   fn: async function (inputs, exits) {
-    // sails.uploadOne();
+    //Upload image
+    var info = sails.uploadOne(inputs.photo);
+    console.log("info : ", info);
+    await Thing.create({ label: inputs.label, owner: this.req.me.id });
+    //TODO
     return exits.success();
   },
 };

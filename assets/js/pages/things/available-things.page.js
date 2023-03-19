@@ -6,6 +6,15 @@ parasails.registerPage("available-things", {
   data: {
     things: [],
     confirmDeleteThingModelOpen: false,
+    selectedThing: undefined,
+
+    //Photo
+    uploadThingModalOpen: false,
+    uploadFormData: {
+      label: "",
+    },
+    formErrors: {},
+
     a: 110,
     b: 100,
 
@@ -64,6 +73,48 @@ parasails.registerPage("available-things", {
       this.$forceUpdate();
       this.confirmDeleteThingModelOpen = false;
       this.selectedThing = undefined;
+    },
+
+    //Upload Photo
+    clickAddButton: function () {
+      this.uploadThingModalOpen = true;
+    },
+
+    //Clear uploadThing
+    _clearUploadThingModal: function () {
+      //Close model
+      this.uploadThingModalOpen = false;
+      //Reset form data
+      this.uploadFormData = { label: "" };
+
+      this.formError = {};
+      this.cloudError = "";
+    },
+
+    //Close upload Modal Thing
+    closeUploadThingModal: function () {
+      this._clearUploadThingModal();
+    },
+
+    handleParsingUploadThingForm: function () {
+      // Clear out any pre-existing error messages.
+      this.formError = {};
+      var argins = this.uploadFormData;
+
+      // TODO validation go here
+
+      //if there were any issues, they've already now been communicated to the user.
+      // so simply return undefined. (this signifies that the submission should be)
+      // cancelled
+      if (Object.keys(this.formErrors).length > 0) {
+        return 0;
+      }
+      return argins;
+    },
+
+    submittedUploadThingForm: function (/*result*/) {
+      //TODO
+      this._clearUploadThingModal();
     },
   },
 });

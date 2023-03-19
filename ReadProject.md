@@ -19,3 +19,6 @@ sails run scripts/rebuild-cloud-sdk
 destroyOneThing.with({})
 
 
+Upload Image
+npm install sails-hook-uploads
+
